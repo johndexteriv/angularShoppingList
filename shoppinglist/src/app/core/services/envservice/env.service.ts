@@ -7,6 +7,8 @@ export class EnvService {
   // API url
   public apiUrl = '';
 
+  public signUpUrl = '';
+
   // Whether or not to enable debug mode
   public enableDebug = true;
 
