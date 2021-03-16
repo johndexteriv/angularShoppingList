@@ -18,10 +18,12 @@ import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-s
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './core/services/recipeservice/recipe.service';
 import { EnvServiceProvider } from './core/services/envservice/env.service.provider';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
     DropdownDirective,
     HeaderComponent,
     ShoppinglistComponent,
