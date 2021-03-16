@@ -4,6 +4,7 @@ import { RecipeService } from '../services/recipeservice/recipe.service';
 import { EnvService } from '../services/envservice/env.service';
 
 import { Recipe } from '../../components/models/recipe.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -21,8 +22,20 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    this.http.get<Recipe[]>(this.env.apiUrl).subscribe((recipes) => {
-      this.recipeService.setRecipes(recipes);
-    });
+    this.http
+      .get<Recipe[]>(this.env.apiUrl)
+      .pipe(
+        map((recipes) => {
+          return recipes.map((recipe) => {
+            return {
+              ...recipe,
+              ingredients: recipe.ingredients ? recipe.ingredients : [],
+            };
+          });
+        })
+      )
+      .subscribe((recipes) => {
+        this.recipeService.setRecipes(recipes);
+      });
   }
 }
