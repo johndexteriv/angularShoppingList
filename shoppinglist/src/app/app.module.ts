@@ -19,6 +19,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
 import { RecipeService } from './core/services/recipeservice/recipe.service';
 import { EnvServiceProvider } from './core/services/envservice/env.service.provider';
 import { AuthComponent } from './components/auth/auth.component';
+import { LoadingSpinnerComponent } from './core/shared/loading-spinner/load-spinner.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthComponent } from './components/auth/auth.component';
     AuthComponent,
     DropdownDirective,
     HeaderComponent,
+    LoadingSpinnerComponent,
     ShoppinglistComponent,
     ShoppinglisteditComponent,
     RecipesComponent,
