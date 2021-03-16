@@ -9,30 +9,31 @@ import { ShoppingListService } from '../shoppinglistservice/shoppinglist.service
 export class RecipeService {
   // recipeSelected = new EventEmitter<Recipe>();
   recipesChanged = new Subject<Recipe[]>();
+  private recipes: Recipe[] = [];
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Panko Parmesan Salmon',
-      'Salmon made with panko, which are very light and crunchy, mixed with Parmesan cheese. Its baked in the oven until the panko is nice and toasted.',
-      'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7052071.jpg&w=596&h=596&c=sc&poi=face&q=85',
-      [
-        new Ingredient('Salmon Fillets', 2),
-        new Ingredient('Bread Crumbs', 15),
-        new Ingredient('Lemons', 3.5),
-        new Ingredient('Parmesan Cheese', 2),
-      ]
-    ),
-    new Recipe(
-      'Dr Pepper Pulled Pork',
-      'A simple and tasty pulled pork recipe made in the Instant Pot® with the flavoring of Dr Pepper®.',
-      'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F6303983.jpg&w=596&h=596&c=sc&poi=face&q=85',
-      [
-        new Ingredient('Pork Tenderloin', 4),
-        new Ingredient('Dr Pepper', 2),
-        new Ingredient('BBQ Sauce', 3),
-      ]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Panko Parmesan Salmon',
+  //     'Salmon made with panko, which are very light and crunchy, mixed with Parmesan cheese. Its baked in the oven until the panko is nice and toasted.',
+  //     'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7052071.jpg&w=596&h=596&c=sc&poi=face&q=85',
+  //     [
+  //       new Ingredient('Salmon Fillets', 2),
+  //       new Ingredient('Bread Crumbs', 15),
+  //       new Ingredient('Lemons', 3.5),
+  //       new Ingredient('Parmesan Cheese', 2),
+  //     ]
+  //   ),
+  //   new Recipe(
+  //     'Dr Pepper Pulled Pork',
+  //     'A simple and tasty pulled pork recipe made in the Instant Pot® with the flavoring of Dr Pepper®.',
+  //     'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F6303983.jpg&w=596&h=596&c=sc&poi=face&q=85',
+  //     [
+  //       new Ingredient('Pork Tenderloin', 4),
+  //       new Ingredient('Dr Pepper', 2),
+  //       new Ingredient('BBQ Sauce', 3),
+  //     ]
+  //   ),
+  // ];
 
   constructor(private slService: ShoppingListService) {}
 
