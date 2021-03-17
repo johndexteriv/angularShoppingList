@@ -71,6 +71,28 @@ export class AuthService {
     this.router.navigate(['/auth']);
   }
 
+  auotLogin() {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExprirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExprirationDate)
+    );
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+    }
+  }
+
   private handleAuthentication(
     email: string,
     userId: string,
