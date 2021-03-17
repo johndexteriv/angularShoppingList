@@ -85,6 +85,7 @@ export class AuthService {
       userData._token,
       new Date(userData._tokenExprirationDate)
     );
+
     if (loadedUser.token) {
       this.user.next(loadedUser);
       // Future time in milliseconds minus present time in milliseconds
@@ -106,7 +107,6 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
-    console.log(expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
