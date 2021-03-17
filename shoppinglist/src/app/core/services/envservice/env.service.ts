@@ -9,6 +9,8 @@ export class EnvService {
 
   public signUpUrl = '';
 
+  public loginUrl = '';
+
   // Whether or not to enable debug mode
   public enableDebug = true;
 
