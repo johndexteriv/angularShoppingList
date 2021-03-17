@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { EnvService } from 'src/app/core/services/envservice/env.service';
@@ -19,7 +20,11 @@ export interface AuthResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient, private env: EnvService) {}
+  constructor(
+    private http: HttpClient,
+    private env: EnvService,
+    private router: Router
+  ) {}
 
   signUp(email: string, password: string) {
     return this.http
@@ -59,6 +64,11 @@ export class AuthService {
           );
         })
       );
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/auth']);
   }
 
   private handleAuthentication(
