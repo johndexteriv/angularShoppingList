@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { RecipeService } from '../services/recipeservice/recipe.service';
 import { EnvService } from '../services/envservice/env.service';
 
 import { Recipe } from '../../components/models/recipe.model';
-import { map, tap } from 'rxjs/operators';
+import { exhaustMap, map, take, tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/components/auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
   constructor(
     private http: HttpClient,
     private recipeService: RecipeService,
-    private env: EnvService
+    private env: EnvService,
+    private authService: AuthService
   ) {}
 
   storeRecipes() {
@@ -22,7 +24,13 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    return this.http.get<Recipe[]>(this.env.apiUrl).pipe(
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap((user) => {
+        return this.http.get<Recipe[]>(this.env.apiUrl, {
+          params: new HttpParams().set('auth', user.token),
+        });
+      }),
       map((recipes) => {
         return recipes.map((recipe) => {
           return {
