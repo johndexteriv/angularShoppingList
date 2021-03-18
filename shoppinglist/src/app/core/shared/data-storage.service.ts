@@ -6,6 +6,7 @@ import { EnvService } from '../services/envservice/env.service';
 import { Recipe } from '../../components/models/recipe.model';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/components/auth/auth.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -18,13 +19,13 @@ export class DataStorageService {
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
-    this.http.put(this.env.apiUrl, recipes).subscribe((response) => {
+    this.http.put(environment.apiUrl, recipes).subscribe((response) => {
       console.log('store recipes', response);
     });
   }
 
   fetchRecipes() {
-    return this.http.get<Recipe[]>(this.env.apiUrl).pipe(
+    return this.http.get<Recipe[]>(environment.apiUrl).pipe(
       map((recipes) => {
         return recipes.map((recipe) => {
           return {

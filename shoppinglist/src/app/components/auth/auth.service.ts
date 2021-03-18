@@ -5,6 +5,7 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { EnvService } from 'src/app/core/services/envservice/env.service';
 import { User } from '../models/user.model';
+import { environment } from '../../../environments/environment';
 
 export interface AuthResponseData {
   kind: string;
@@ -29,7 +30,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     return this.http
-      .post<AuthResponseData>(this.env.signUpUrl, {
+      .post<AuthResponseData>(environment.signUpUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
@@ -49,7 +50,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<AuthResponseData>(this.env.loginUrl, {
+      .post<AuthResponseData>(environment.loginUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
