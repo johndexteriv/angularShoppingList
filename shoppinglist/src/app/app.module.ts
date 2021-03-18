@@ -16,6 +16,7 @@ import { CoreModule } from './core.module';
   declarations: [AppComponent, AuthComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -24,7 +25,6 @@ import { CoreModule } from './core.module';
     ShoppinglistModule,
     SharedModule,
   ],
-  providers: [CoreModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
