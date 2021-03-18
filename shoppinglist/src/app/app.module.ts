@@ -21,10 +21,12 @@ import { EnvServiceProvider } from './core/services/envservice/env.service.provi
 import { AuthComponent } from './components/auth/auth.component';
 import { LoadingSpinnerComponent } from './core/shared/loading-spinner/load-spinner.component';
 import { AuthInterceptorService } from './components/auth/auth-interceptor.service';
+import { AlertComponent } from './core/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AlertComponent,
     AuthComponent,
     DropdownDirective,
     HeaderComponent,
