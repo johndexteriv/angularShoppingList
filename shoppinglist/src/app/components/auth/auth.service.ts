@@ -136,7 +136,7 @@ export class AuthService {
         errorMessage = 'This email exists already, please login.';
         break;
       case 'EMAIL_NOT_FOUND':
-        errorMessage = 'This email entered does not exist';
+        errorMessage = 'The email entered does not exist';
         break;
       case 'INVALID_PASSWORD':
         errorMessage = 'The password entered was incorrect';
