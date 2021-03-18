@@ -10,6 +10,18 @@ const appRoutes: Routes = [
         (mod) => mod.RecipesModule
       ),
   },
+  {
+    path: 'shopping-list',
+    loadChildren: () =>
+      import('../../components/shoppinglist/shoppinglist.module').then(
+        (mod) => mod.ShoppinglistModule
+      ),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('../../components/auth/auth.module').then((mod) => mod.AuthModule),
+  },
 ];
 
 @NgModule({
