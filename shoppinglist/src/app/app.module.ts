@@ -22,6 +22,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoadingSpinnerComponent } from './core/shared/loading-spinner/load-spinner.component';
 import { AuthInterceptorService } from './components/auth/auth-interceptor.service';
 import { AlertComponent } from './core/shared/alert/alert.component';
+import { PlaceholderDirective } from './core/shared/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AlertComponent } from './core/shared/alert/alert.component';
     DropdownDirective,
     HeaderComponent,
     LoadingSpinnerComponent,
+    PlaceholderDirective,
     ShoppinglistComponent,
     ShoppinglisteditComponent,
     RecipesComponent,
@@ -58,5 +60,6 @@ import { AlertComponent } from './core/shared/alert/alert.component';
     },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [AlertComponent],
 })
 export class AppModule {}
