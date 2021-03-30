@@ -1,5 +1,9 @@
 # Shopping List
 
+[GitHub Repo](https://github.com/johndexteriv/angularShoppingList)
+
+[Deployed Application](https://jdgshoppinglist.netlify.app/)
+
 - Shopping list project built with angular
 - Deployed on netlify
 - Firebase backend
@@ -9,6 +13,3 @@
 ![Home](/shoppinglist/src/assets/images/home.png)
 ![Recipes](/shoppinglist/src/assets/images/recipes.png)
 ![Shoppinglist](/shoppinglist/src/assets/images/shoppinglist.png)
-
-[GitHub Repo](https://github.com/johndexteriv/angularShoppingList)
-[Deployed Application](https://jdgshoppinglist.netlify.app/)
